@@ -25,3 +25,12 @@ resource "aws_subnet" "main" {
     Name = "Main"
   }
 }
+resource "aws_route_table_association" "rt_public1" {
+    subnet_id = aws_subnet.public_main_us_east_1a.id
+    route_table_id = aws_route_table.vpc.main_public.id
+}
+
+resource "aws_route_table_association" "rt_public2" {
+    subnet_id = aws_subnet.public_main_us_east_1b.id
+    route_table_id = aws_route_table.vpc.main_public.id
+  }
